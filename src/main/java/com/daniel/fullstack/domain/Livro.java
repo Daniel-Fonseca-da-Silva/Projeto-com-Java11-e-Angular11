@@ -1,10 +1,22 @@
 package com.daniel.fullstack.domain;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Livro {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity // Informa que essa classe representa uma entidade e seus objetos devem ser persistidos em um BD
+public class Livro implements Serializable{
+
+	// Permite ser trafegado em rede, armazenado etc(boa prática!)
+	private static final long serialVersionUID = 1L;
+	
 	// Atributos
+	@Id // Define id como pk
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Informa ao BD que irá ser responsável pela geração da PK
 	private Integer id;
 	private String titulo;
 	private String descricao;
