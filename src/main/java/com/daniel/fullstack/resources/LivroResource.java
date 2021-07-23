@@ -44,5 +44,6 @@ public class LivroResource {
 	@GetMapping
 	public ResponseEntity<List<Livro>> listAll() {
 		List<Livro> list = service.findAll();
+		return ResponseEntity.ok().body(list);
 	}
 }
