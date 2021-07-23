@@ -66,6 +66,7 @@ public class LivroResource {
 	public ResponseEntity<Void> delete(@PathVariable Integer id)
 	{
 		service.delete(id);
+		return ResponseEntity.noContent().build();
 	}
 	
 }
