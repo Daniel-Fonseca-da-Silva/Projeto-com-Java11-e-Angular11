@@ -34,5 +34,10 @@ public class LivroService {
 		List<Livro> list = repository.findAll();
 		return list;
 	}
+
+	public Livro create(Livro obj) {
+		obj.setId(null); // Impede usuário de modificar a PK
+		return repository.save(obj);
+	}
 	
 }
