@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.daniel.fullstack.domain.Livro;
 import com.daniel.fullstack.repositories.LivroRepository;
+import com.daniel.fullstack.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class LivroService {
@@ -17,7 +18,9 @@ public class LivroService {
 	
 	public Livro findById(Integer id) {
 		Optional<Livro> obj = repository.findById(id);
-		return obj.orElse(null);
+		return obj.orElseThrow(() -> new ObjectNotFoundException
+		("O objeto não foi encontrado! id: " +
+		id + ", tipo: " + Livro.class.getName()));
 	}
 
 	public List<Livro> findAllOpen() {
