@@ -29,6 +29,12 @@ public class LivroResource {
 	public ResponseEntity<List<Livro>> listOpen() {
 		List<Livro> list = service.findAllOpen();
 		return ResponseEntity.ok().body(list);
+	}
+	
+	@GetMapping(value = "/close")
+	public ResponseEntity<List<Livro>> listClose() {
+		List<Livro> list = service.findAllClosed();
+		return ResponseEntity.ok().body(list);
 	} 
 	
 }
