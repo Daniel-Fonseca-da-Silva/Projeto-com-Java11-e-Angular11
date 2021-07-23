@@ -14,4 +14,7 @@ public interface LivroRepository extends JpaRepository<Livro, Integer>{
 	@Query("SELECT obj FROM Livro obj WHERE obj.finalizado = null ORDER BY obj.dataParaFinalizar")
 	List<Livro> findAllOpen();
 
+	@Query("SELECT obj FROM Livro obj WHERE obj.finalizado = true ORDER BY obj.dataParaFinalizar")
+	List<Livro> findAllClose();
+
 }

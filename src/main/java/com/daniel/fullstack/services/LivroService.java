@@ -25,7 +25,7 @@ public class LivroService {
 		return list;
 	}
 
-	public List<Livro> findAllClosed() {
+	public List<Livro> findAllClose() {
 		List<Livro> list = repository.findAllClose();
 		return list;
 	}
