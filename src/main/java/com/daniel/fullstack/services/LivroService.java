@@ -24,5 +24,10 @@ public class LivroService {
 		List<Livro> list = repository.findAllOpen();
 		return list;
 	}
+
+	public List<Livro> findAllClosed() {
+		List<Livro> list = repository.findAllClose();
+		return list;
+	}
 	
 }

@@ -36,7 +36,7 @@ public class LivroResource {
 	/** Método que exibe todos os livros fechados */
 	@GetMapping(value = "/close")
 	public ResponseEntity<List<Livro>> listClose() {
-		List<Livro> list = service.findAllClosed();
+		List<Livro> list = service.findAllClose();
 		return ResponseEntity.ok().body(list);
 	} 
 	
