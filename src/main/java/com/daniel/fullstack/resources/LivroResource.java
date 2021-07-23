@@ -38,6 +38,11 @@ public class LivroResource {
 	public ResponseEntity<List<Livro>> listClose() {
 		List<Livro> list = service.findAllClose();
 		return ResponseEntity.ok().body(list);
-	} 
+	}
 	
+	/** Método que exibe todos os livros do BD */
+	@GetMapping
+	public ResponseEntity<List<Livro>> listAll() {
+		List<Livro> list = service.findAll();
+	}
 }
