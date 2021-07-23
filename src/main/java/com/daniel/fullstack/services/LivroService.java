@@ -39,5 +39,9 @@ public class LivroService {
 		obj.setId(null); // Impede usuário de modificar a PK
 		return repository.save(obj);
 	}
+
+	public void delete(Integer id) {
+		repository.deleteById(id);
+	}
 	
 }
