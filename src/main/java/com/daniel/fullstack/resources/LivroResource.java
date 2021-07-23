@@ -19,18 +19,21 @@ public class LivroResource {
 	@Autowired // Informa ao spring que será responsável por CRUD dessa instância
 	private LivroService service;
 	
+	/** Método que exibe todos os livros pelo seu identificador */
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Livro> findById(@PathVariable Integer id) {
 		Livro obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	/** Método que exibe todos os livros abertos */
 	@GetMapping(value = "/open")
 	public ResponseEntity<List<Livro>> listOpen() {
 		List<Livro> list = service.findAllOpen();
 		return ResponseEntity.ok().body(list);
 	}
 	
+	/** Método que exibe todos os livros fechados */
 	@GetMapping(value = "/close")
 	public ResponseEntity<List<Livro>> listClose() {
 		List<Livro> list = service.findAllClosed();
