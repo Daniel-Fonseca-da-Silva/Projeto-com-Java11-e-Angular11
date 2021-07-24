@@ -54,7 +54,7 @@ public class LivroService {
 		newObj.setFinalizado(obj.getFinalizado());
 		newObj.setTitulo(obj.getTitulo());
 		
-		return newObj;
+		return repository.save(newObj);
 	}
 	
 }
