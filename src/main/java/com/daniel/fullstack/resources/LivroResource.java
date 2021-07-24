@@ -74,6 +74,7 @@ public class LivroResource {
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Livro> update(@PathVariable Integer id, @RequestBody Livro obj) {
 		Livro newObj = service.update(id, obj);
+		return ResponseEntity.ok().body(newObj);
 	}
 	
 }
