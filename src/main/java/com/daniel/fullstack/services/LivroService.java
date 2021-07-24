@@ -4,11 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.daniel.fullstack.domain.Livro;
 import com.daniel.fullstack.repositories.LivroRepository;
@@ -49,6 +45,16 @@ public class LivroService {
 
 	public void delete(Integer id) {
 		repository.deleteById(id);
+	}
+
+	public Livro update(Integer id, Livro obj) {
+		Livro newObj = findById(id);
+		newObj.setTitulo(obj.getTitulo());
+		newObj.setDataParaFinalizar(obj.getDataParaFinalizar());
+		newObj.setFinalizado(obj.getFinalizado());
+		newObj.setTitulo(obj.getTitulo());
+		
+		return newObj;
 	}
 	
 }
