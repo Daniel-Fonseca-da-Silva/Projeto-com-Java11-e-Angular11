@@ -14,11 +14,10 @@ public class TestConfig {
 	@Autowired // Informa ao spring que será responsável por CRUD dessa instância
 	private DBService dbService;
 
-	/** Método que sempre instância BD 
-	 * sempre que o perfil ativo for o
-	 *  perfil de test 
+	/**
+	 * Método que sempre instância BD sempre que o perfil ativo for o perfil de test
 	 */
-	
+
 	@Bean
 	public Boolean instancia() {
 		this.dbService.instanciaBaseDeDados();

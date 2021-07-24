@@ -12,15 +12,14 @@ import com.daniel.fullstack.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class LivroService {
-	
-	@Autowired	// Informa ao spring que será responsável por CRUD dessa instância
+
+	@Autowired // Informa ao spring que será responsável por CRUD dessa instância
 	private LivroRepository repository;
-	
+
 	public Livro findById(Integer id) {
 		Optional<Livro> obj = repository.findById(id);
-		return obj.orElseThrow(() -> new 
-		ObjectNotFoundException("Objeto não encontrado! id " +
-		id + " tipo: " + Livro.class.getName()));
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! id " + id + " tipo: " + Livro.class.getName()));
 	}
 
 	public List<Livro> findAllOpen() {
@@ -52,9 +51,8 @@ public class LivroService {
 		newObj.setTitulo(obj.getTitulo());
 		newObj.setDataParaFinalizar(obj.getDataParaFinalizar());
 		newObj.setFinalizado(obj.getFinalizado());
-		newObj.setTitulo(obj.getTitulo());
-		
+
 		return repository.save(newObj);
 	}
-	
+
 }
