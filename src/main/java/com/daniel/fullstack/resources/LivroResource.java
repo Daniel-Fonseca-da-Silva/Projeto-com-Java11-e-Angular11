@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -67,6 +68,12 @@ public class LivroResource {
 	{
 		service.delete(id);
 		return ResponseEntity.noContent().build();
+	}
+	
+	/** Método que atualiza livro no BD */
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<Livro> update(@PathVariable Integer id, @RequestBody Livro obj) {
+		Livro newObj = service.update(id, obj);
 	}
 	
 }

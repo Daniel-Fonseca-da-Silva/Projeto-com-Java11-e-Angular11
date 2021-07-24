@@ -1,8 +1,9 @@
 package com.daniel.fullstack.services.exceptions;
 
-public class ObjectNotFoundException extends RuntimeException{
+public class ObjectNotFoundException extends RuntimeException {
 
-	private static final long serialVersionUID = 8724930907823626131L;
+	// Permite ser trafegado em rede, armazenado etc(boa prática!)
+	private static final long serialVersionUID = 1L;
 
 	public ObjectNotFoundException(String message, Throwable cause) {
 		super(message, cause);
@@ -11,7 +12,5 @@ public class ObjectNotFoundException extends RuntimeException{
 	public ObjectNotFoundException(String message) {
 		super(message);
 	}
-
-	
 	
 }

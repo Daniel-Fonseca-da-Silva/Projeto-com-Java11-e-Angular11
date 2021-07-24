@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.daniel.fullstack.domain.Livro;
 import com.daniel.fullstack.repositories.LivroRepository;
@@ -18,9 +22,9 @@ public class LivroService {
 	
 	public Livro findById(Integer id) {
 		Optional<Livro> obj = repository.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException
-		("O objeto não foi encontrado! id: " +
-		id + ", tipo: " + Livro.class.getName()));
+		return obj.orElseThrow(() -> new 
+		ObjectNotFoundException("Objeto não encontrado! id " +
+		id + " tipo: " + Livro.class.getName()));
 	}
 
 	public List<Livro> findAllOpen() {
