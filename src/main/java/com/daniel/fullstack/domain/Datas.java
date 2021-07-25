@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 public class Datas {
 
 	public static String getData() {
-		DateTimeFormatter dataFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		DateTimeFormatter dataFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDateTime agora = LocalDateTime.now();
 		return dataFormat.format(agora);
 	}
